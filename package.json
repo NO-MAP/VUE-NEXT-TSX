@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "dayjs": "^1.10.4",
     "element-plus": "^1.0.2-beta.42",
     "js-cookie": "^2.2.1",
     "nprogress": "^0.2.0",

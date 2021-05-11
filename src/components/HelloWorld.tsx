@@ -9,14 +9,14 @@ export default defineComponent({
     }
   },
   setup: () => {
-    const countStore = useAppStore()
+    const appStore = useAppStore()
 
     return () =>
       <div class="hello-world">
         <p>
-          {countStore.count}
+          {appStore.count}
         </p>
-        <button onClick={() => { countStore.add() }}>add</button>
+        <button onClick={() => { appStore.add() }}>add</button>
       </div>
   }
 })
