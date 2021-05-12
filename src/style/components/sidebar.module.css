@@ -1,0 +1,39 @@
+.sidebar {
+  overflow: hidden;
+  height: 100%;
+  transition: 0.3s;
+}
+
+.sidebar-open {
+  width: 200px;
+}
+
+.sidebar-closed {
+  width: 64px;
+}
+
+.side-title {
+  height: 64px;
+  width: 100%;
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 64px;
+  width: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-text {
+  margin-left: 64px;
+  width: 136px;
+  height: 64px;
+  line-height: 64px;
+  text-align: center;
+  white-space: nowrap;
+}

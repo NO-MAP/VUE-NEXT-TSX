@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import Login from '@/pages/Login.vue';
-import NotFound from '@/pages/ErrorPages/NotFound.vue';
-import Forbidden from '@/pages/ErrorPages/Forbidden.vue';
-import Layout from '@/pages/Layout.vue';
-import Home from '@/views/Home.vue';
+import Login from '@/pages/Login';
+import NotFound from '@/pages/ErrorPages/NotFound';
+import Forbidden from '@/pages/ErrorPages/Forbidden';
+import Layout from '@/pages/Layout';
+import Home from '@/views/Home';
 
 const defaultRouters = [
   {

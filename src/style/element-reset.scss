@@ -1,0 +1,320 @@
+.el-menu.menu {
+  background-color: var(--reverse4);
+  border-right    : 0px;
+
+  .el-menu {
+    background-color: var(--reverse4);
+  }
+
+
+  .el-menu-item {
+    color: var(--reverse);
+
+    i {
+      color: var(--reverse);
+    }
+
+    &:hover {
+      background-color: var(--reverse2);
+    }
+
+    &.is-active {
+      background-color: var(--main);
+      color           : var(--reverse4);
+
+      i {
+        color: var(--reverse4);
+      }
+    }
+  }
+
+  .el-submenu__title {
+    color: var(--reverse);
+
+    i {
+      color: var(--reverse);
+    }
+
+    &:hover {
+      background-color: var(--reverse2);
+    }
+  }
+
+  .el-submenu.is-opened {
+    background-color: var(--reverse3);
+
+    .el-menu {
+      background-color: var(--reverse3);
+    }
+
+    .el-submenu__title {
+      background-color: var(--reverse3);
+      color           : var(--main);
+
+      i {
+        color: var(--main);
+      }
+
+      &:hover {
+        background-color: var(--reverse2)
+      }
+    }
+
+
+  }
+}
+
+.el-breadcrumb.breadcrumb {
+  .el-breadcrumb__inner {
+    color: var(--reverse2);
+
+    &.is-link {
+      color: var(--main);
+
+
+      &:hover {
+        color: var(--main);
+      }
+    }
+  }
+
+  .el-breadcrumb__item:last-child .el-breadcrumb__inner:hover {
+    color: var(--main);
+  }
+
+
+  .el-breadcrumb__separator {
+    color: var(--main);
+  }
+}
+
+.el-message-box {
+  width: 300px;
+}
+
+.el-table {
+  color           : var(--main);
+  background-color: var(--reverse4);
+
+  &--border {
+    border-top: 1px solid var(--reverse);
+    border-left: 1px solid var(--reverse);
+  }
+
+  thead {
+    color: var(--main);
+  }
+
+  th,
+  tr {
+    background-color: var(--reverse4);
+  }
+
+}
+
+.el-table--border td,
+.el-table--border th,
+.el-table__body-wrapper .el-table--border.is-scrolling-left~.el-table__fixed {
+  border-right: 1px solid var(--reverse);
+}
+
+.el-table td,
+.el-table th.is-leaf {
+  border-bottom: 1px solid var(--reverse);
+}
+
+.el-table__body tr.hover-row.current-row>td,
+.el-table__body tr.hover-row.el-table__row--striped.current-row>td,
+.el-table__body tr.hover-row.el-table__row--striped>td,
+.el-table__body tr.hover-row>td {
+  background-color: var(--reverse3);
+}
+
+.el-table--border::after,
+.el-table--group::after,
+.el-table::before {
+  background-color: var(--reverse);
+}
+
+.el-table__fixed-right::before,
+.el-table__fixed::before {
+  background-color: var(--reverse);
+
+}
+
+.el-button {
+  &--text {
+    color: var(--main);
+  }
+
+  &--primary {
+    color           : var(--reverse4);
+    background-color: var(--main);
+    border-color    : var(--reverse);
+  }
+}
+
+.el-button--primary:focus,
+.el-button--primary:hover {
+  color           : var(--reverse4);
+  background-color: var(--reverse);
+}
+
+.el-button--text:focus,
+.el-button--text:hover {
+  color: var(--reverse2);
+}
+
+.el-pagination {
+  color: var(--reverse);
+
+  &__jump,
+  &__total {
+    color: var(--main);
+  }
+}
+
+.el-pagination.is-background .btn-next,
+.el-pagination.is-background .btn-prev,
+.el-pagination.is-background .el-pager li {
+  background-color: var(--reverse3);
+}
+
+.el-pagination.is-background .btn-next.disabled,
+.el-pagination.is-background .btn-next:disabled,
+.el-pagination.is-background .btn-prev.disabled,
+.el-pagination.is-background .btn-prev:disabled,
+.el-pagination.is-background .el-pager li.disabled {
+  color: var(--reverse2);
+}
+
+.el-pagination.is-background .btn-next,
+.el-pagination.is-background .btn-prev,
+.el-pagination.is-background .el-pager li {
+  color: var(--main);
+}
+
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+  background-color: var(--main);
+  color           : var(--reverse4);
+}
+
+.el-input {
+  &__inner {
+    color           : var(--main);
+    background-color: var(--reverse3);
+  }
+}
+
+.el-select .el-input__inner:focus {
+  border-color: var(--main);
+}
+
+.el-input.is-active .el-input__inner,
+.el-input__inner:focus {
+  border-color    : var(--main);
+  color           : var(--reverse3);
+  background-color: var(--main);
+}
+
+.el-textarea{
+  &__inner{
+    color           : var(--main);
+    background-color: var(--reverse3);
+    &:focus {
+      border-color    : var(--main);
+      color           : var(--reverse3);
+      background-color: var(--main);
+    }
+  }
+
+}
+
+.el-dialog {
+  background-color: var(--reverse4);
+
+  .el-dialog__title {
+    color    : var(--main);
+    font-size: 14px;
+  }
+
+  .el-dialog__headerbtn .el-dialog__close {
+    color: var(--main);
+  }
+}
+
+.el-form {
+  .el-form-item__label {
+    color: var(--main);
+  }
+  .el-form-item__content{
+    span,p{
+      color: var(--reverse);
+    }
+  }
+}
+
+.el-dropdown-menu {
+  background-color: var(--reverse3);
+
+  &__item {
+    color: var(--main);
+  }
+}
+
+.el-dropdown-menu__item--divided {
+  border-top: 1px solid var(--reverse2);
+}
+
+.el-dropdown-menu__item--divided:before {
+  background-color: var(--reverse2);
+}
+
+.el-dropdown__popper[role=tooltip].is-light[role=tooltip] .el-popper__arrow::before {
+  border          : 1px solid var(--main);
+  background-color: var(--reverse3);
+}
+
+.el-dropdown__popper[role=tooltip].is-light[role=tooltip] {
+  border: 1px solid var(--reverse);
+}
+
+.el-dropdown-menu__item:focus,
+.el-dropdown-menu__item:not(.is-disabled):hover {
+  background-color: var(--reverse);
+  color           : var(--main);
+}
+
+.el-popper.is-light {
+  background-color: var(--reverse3);
+  color           : var(--main);
+}
+
+.el-popper.is-light .el-popper__arrow::before {
+  background-color: var(--reverse3);
+}
+
+.el-message-box {
+  background-color: var(--reverse4);
+  border          : 1px solid var(--reverse4);
+
+  &__title {
+    color: var(--main);
+  }
+
+  .el-message-box__headerbtn .el-message-box__close {
+    color: var(--main);
+  }
+
+  .el-message-box__content {
+    color: var(--main);
+  }
+}
+
+.el-loading-mask{
+  background-color: var(--reverse3);
+
+  .el-loading-spinner .path{
+    stroke: var(--main)
+  }
+}

@@ -58,6 +58,9 @@ export const useAppStore = defineStore({
   getters: {
     doubleCount(state): number {
       return state.count * 2
+    },
+    collapse(state) {
+      return state.sidebar.collapse
     }
   },
   actions: {
