@@ -1,5 +1,5 @@
-import { I_S_RouteItem } from '@/api/login';
-import { RouteRecordRaw } from 'vue-router';
+import { I_S_RouteItem } from "@/api/login";
+import { RouteRecordRaw } from "vue-router";
 
 export const generateRoutersByServiceData = (routes: I_S_RouteItem[]) => {
   let result = [];
@@ -12,21 +12,30 @@ export const generateRoutersByServiceData = (routes: I_S_RouteItem[]) => {
         title: route.meta.title,
         icon: route.meta.icon,
       },
-      redirect: ""
-    }
+      redirect: "",
+    };
     if (route.redirect) {
       data.redirect = route.redirect;
     }
 
     if (route.children) {
       // @ts-ignore
-      data.component = () => import('@/pages/ParentView')
-      data.children = generateRoutersByServiceData(route.children)
+      data.component = () => import("@/pages/ParentView");
+      data.children = generateRoutersByServiceData(route.children);
     } else {
       // @ts-ignore
-      data.component = () => import('@/views' + route.component)
+      data.component = () => import("@/views" + route.component);
     }
-    result.push(data)
+    result.push(data);
   }
-  return result
-}
+  return result;
+};
+
+export const debounce = <T extends Function>(cb: T, wait = 20) => {
+  let h = 0;
+  let callable = (...args: any) => {
+    clearTimeout(h);
+    h = setTimeout(() => cb(...args), wait);
+  };
+  return <T>(<any>callable);
+};

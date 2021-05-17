@@ -1,4 +1,5 @@
 import request from "@/utils/request";
+import { AxiosPromise } from "axios";
 import { routers } from "./temp";
 
 export interface I_S_RouteItem {
@@ -27,4 +28,10 @@ export const login = (data: { userName: string; password: string }) =>
     url: "/api/v1/auth/login",
     method: "post",
     data,
+  });
+
+export const getProfile = <T>(): Promise<T> =>
+  request({
+    url: "/api/v1/auth/profile",
+    method: "get",
   });

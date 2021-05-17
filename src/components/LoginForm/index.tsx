@@ -1,12 +1,19 @@
-import { defineComponent, reactive } from "@vue/runtime-core";
+import { defineComponent, reactive, ref } from "@vue/runtime-core";
 import { Form, Input, Button } from "ant-design-vue";
 import { SWR, useSWR } from "@/hooks/useSWR";
 import { login } from "@/api/login";
 import style from "./index.module.css";
+import { setToken } from "@/utils/auth";
+import { useRoute, useRouter } from "vue-router";
+import { useUserStore } from "@/store/user";
 
 export default defineComponent({
   name: "LoginForm",
   setup() {
+    const userStore = useUserStore();
+    const router = useRouter();
+    const { redirect } = useRoute().query;
+    const formRef = ref();
     const form = reactive({
       username: "admin",
       password: "123456",
@@ -20,6 +27,7 @@ export default defineComponent({
     const loginSWR = SWR("");
 
     const loginHandle = async () => {
+      await formRef.value.validate();
       await useSWR(
         login({
           userName: form.username,
@@ -27,14 +35,20 @@ export default defineComponent({
         }),
         loginSWR
       );
-      console.log(loginSWR.result);
+      setToken(loginSWR.result.access_token);
+      await userStore.GET_USERINFO();
+      if (redirect) router.push({ path: redirect as string });
+      else router.push({ name: "Home" });
     };
 
     return () => (
       <div class={style.login_content}>
         <Form
+          ref={formRef}
           model={form}
           rules={rules}
+          labelAlign="left"
+          layout="vertical"
         >
           <Form.Item name="username" label="用户名">
             <Input
@@ -57,7 +71,8 @@ export default defineComponent({
           </Form.Item>
 
           <Button
-            type="default"
+            style={{ width: "100%" }}
+            type="primary"
             loading={loginSWR.loading}
             onClick={loginHandle}
           >

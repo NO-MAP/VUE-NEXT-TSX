@@ -3,7 +3,7 @@ import Breadcrumb from "./components/Breadcrumb";
 import SidebarToggle from "./components/SidebarToggle";
 import FullScreen from "./components/FullScreen";
 import ThemePicker from "./components/ThemePicker";
-import style from "../style/topheader.module.css"
+import style from "./topheader.module.css"
 
 const TopHeader = defineComponent({
   name: "TopHeader",

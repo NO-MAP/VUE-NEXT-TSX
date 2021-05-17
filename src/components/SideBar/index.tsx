@@ -1,7 +1,7 @@
 import { useAppStore } from "@/store/app";
 import { defineComponent } from "@vue/runtime-core";
 import Menu from "./Menu"
-import style from "../style/sidebar.module.css";
+import style from "./sidebar.module.css";
 
 const SideBar = defineComponent({
   name: "SideBar",

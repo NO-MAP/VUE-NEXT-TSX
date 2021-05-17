@@ -1,15 +1,15 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 import NProgress from "nprogress";
 import { getToken } from "./auth";
 import { message } from "ant-design-vue";
 import router from "../router";
 
-const request = axios.create({
+const _request = axios.create({
   baseURL: "http://localhost:8000",
   timeout: 50000,
 });
 
-request.interceptors.request.use((config) => {
+_request.interceptors.request.use((config) => {
   NProgress.start();
   const url = config.url;
   if (getToken() && url?.indexOf("refreshToken") === -1) {
@@ -18,7 +18,7 @@ request.interceptors.request.use((config) => {
   return config;
 });
 
-request.interceptors.response.use(
+_request.interceptors.response.use(
   (response) => {
     if (response.status !== 200 && response.status !== 201) {
       message.error(response.data.message || "Error");
@@ -26,7 +26,7 @@ request.interceptors.response.use(
       return Promise.reject(new Error(response.data || "Error"));
     } else {
       NProgress.done();
-      return response.data;
+      return response;
     }
   },
   (error) => {
@@ -54,5 +54,12 @@ request.interceptors.response.use(
     }
   }
 );
+
+const request = async <T>(config: AxiosRequestConfig): Promise<T> => {
+  const data = await _request(config);
+  return {
+    ...data.data,
+  } as T;
+};
 
 export default request;

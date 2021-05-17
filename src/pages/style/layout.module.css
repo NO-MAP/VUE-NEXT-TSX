@@ -18,6 +18,10 @@
   width: calc(100% - 200px);
 }
 
+.is_mobile {
+  width: 100% !important;
+}
+
 .main_container {
   width: 100%;
   height: calc(100% - 84px);

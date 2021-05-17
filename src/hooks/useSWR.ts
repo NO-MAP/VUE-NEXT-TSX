@@ -22,6 +22,7 @@ export const useSWR = async (
     } catch (error) {
       SWR.error = error;
       SWR.success = false;
+      throw new Error(error);
     } finally {
       SWR.loading = false;
     }

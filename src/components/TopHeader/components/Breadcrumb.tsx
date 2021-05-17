@@ -1,9 +1,9 @@
 import { defineComponent, ref, watch } from "@vue/runtime-core";
 import { RouteLocationMatched, useRoute } from "vue-router";
-import { Breadcrumb as Abreadcrumb } from "ant-design-vue";
+import { Breadcrumb as ABreadcrumb } from "ant-design-vue";
 import config from "../../../config";
 
-const Breadcrumb = defineComponent({
+export default defineComponent({
   name: "Breadcrumb",
   setup() {
     const breadList = ref<Array<RouteLocationMatched>>([]);
@@ -24,14 +24,12 @@ const Breadcrumb = defineComponent({
     );
 
     return () => (
-      <Abreadcrumb class="breadcrumb" separator-class="el-icon-arrow-right">
-        <Abreadcrumb.item to={{ name: "Home" }}>首页</Abreadcrumb.item>
+      <ABreadcrumb class="breadcrumb" separator-class="el-icon-arrow-right">
+        <ABreadcrumb.Item href="./home">VNA</ABreadcrumb.Item>
         {breadList.value.map((item) => (
-          <Abreadcrumb.item key={item.path}>{item.meta.title}</Abreadcrumb.item>
+          <ABreadcrumb.Item key={item.path}>{item.meta.title}</ABreadcrumb.Item>
         ))}
-      </Abreadcrumb>
+      </ABreadcrumb>
     );
   },
 });
-
-export default Breadcrumb;
