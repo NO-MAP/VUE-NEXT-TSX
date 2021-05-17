@@ -1,0 +1,9 @@
+.login_content{
+  background-color: pink;
+  width: 600px;
+  height: 400px;
+  top: 50%;
+  position: relative;
+  transform: translateY(-50%);
+  margin: 0 auto;
+}

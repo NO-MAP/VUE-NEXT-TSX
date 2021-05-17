@@ -3,6 +3,7 @@ import Breadcrumb from "./components/Breadcrumb";
 import SidebarToggle from "./components/SidebarToggle";
 import FullScreen from "./components/FullScreen";
 import ThemePicker from "./components/ThemePicker";
+import style from "../style/topheader.module.css"
 
 const TopHeader = defineComponent({
   name: "TopHeader",
@@ -10,12 +11,12 @@ const TopHeader = defineComponent({
 
 
     return () =>
-      <div class="top-header">
-        <div class="left">
+      <div class={style.top_header}>
+        <div class={style.left}>
           <SidebarToggle />
           <Breadcrumb style="padding-left: 10px" />
         </div>
-        <div class="right">
+        <div class={style.right}>
           <FullScreen style="padding-right: 10px" />
           <ThemePicker style="padding-right: 10px" />
         </div>

@@ -1,6 +1,6 @@
 import { defineComponent, ref, watch } from "@vue/runtime-core";
 import { RouteLocationMatched, useRoute } from "vue-router";
-import { ElBreadcrumb, ElBreadcrumbItem } from "element-plus";
+import { Breadcrumb as Abreadcrumb } from "ant-design-vue";
 import config from "../../../config";
 
 const Breadcrumb = defineComponent({
@@ -23,18 +23,15 @@ const Breadcrumb = defineComponent({
       }
     );
 
-    return () =>
-      <ElBreadcrumb class="breadcrumb" separator-class="el-icon-arrow-right">
-        <ElBreadcrumbItem to={{ name: "Home" }}>首页</ElBreadcrumbItem>
-        {
-          breadList.value.map(item =>
-            <ElBreadcrumbItem key={item.path}>
-              {item.meta.title}
-            </ElBreadcrumbItem>
-          )
-        }
-      </ElBreadcrumb>
-  }
-})
+    return () => (
+      <Abreadcrumb class="breadcrumb" separator-class="el-icon-arrow-right">
+        <Abreadcrumb.item to={{ name: "Home" }}>首页</Abreadcrumb.item>
+        {breadList.value.map((item) => (
+          <Abreadcrumb.item key={item.path}>{item.meta.title}</Abreadcrumb.item>
+        ))}
+      </Abreadcrumb>
+    );
+  },
+});
 
-export default Breadcrumb
+export default Breadcrumb;

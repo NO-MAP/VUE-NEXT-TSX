@@ -1,14 +1,14 @@
 import { defineComponent } from "@vue/runtime-core";
+import loginStyle from "./style/login.module.css";
+import LoginForm from "@/components/LoginForm";
 
-const Login = defineComponent({
+export default defineComponent({
   name: "Login",
   setup() {
-
-    return () =>
-      <div class="login-wrapper">
-        登录
+    return () => (
+      <div class={loginStyle.login_wrapper}>
+        <LoginForm />
       </div>
-  }
-})
-
-export default Login
+    );
+  },
+});

@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { RouteLocationNormalized } from "vue-router";
 import router from "../router";
 import { getStore, setStore } from "../utils/localStorage";
 
@@ -27,7 +28,7 @@ interface IAppState {
   isMobile: boolean;
   appSize: IAppSize;
   sidebar: ISideBar;
-  tagView: Array<IRouteLocal>,
+  tagView: Array<IRouteLocal | RouteLocationNormalized>,
   size: TSize
 }
 
@@ -80,7 +81,7 @@ export const useAppStore = defineStore({
     SET_SIZE(data: TSize) {
       this.size = data
     },
-    ADD_TAG(route: IRouteLocal) {
+    ADD_TAG(route: IRouteLocal | RouteLocationNormalized) {
       const tagPathArr = this.tagView.map(item => item.path);
       if (tagPathArr.includes(route.path)) return;
       this.tagView.push(route);
@@ -89,8 +90,22 @@ export const useAppStore = defineStore({
         content: this.tagView
       })
     },
-    DEL_TAG() {
-
+    DEL_TAG({ currentPath, route }: {
+      currentPath: string;
+      route: IRouteLocal | RouteLocationNormalized;
+    }) {
+      const tagPathArr = this.tagView.map(item => item.path);
+      const index = tagPathArr.indexOf(route.path);
+      this.tagView.splice(index, 1);
+      if (route.path == currentPath) {
+        router.push({
+          name: this.tagView[index - 1].name as string
+        })
+      }
+      setStore({
+        name: 'tags',
+        content: this.tagView
+      })
     },
     CLEAR_TAG(curentPath: string) {
       this.tagView = [{

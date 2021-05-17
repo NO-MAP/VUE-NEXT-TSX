@@ -21,7 +21,10 @@
       "@/*": [
         "src/*"
       ],
-    }
+      "@style/*": [
+        "src/style/*"
+      ]
+    },
   },
   "include": [
     "src/**/*.ts",

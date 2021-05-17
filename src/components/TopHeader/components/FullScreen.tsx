@@ -1,9 +1,8 @@
 import { defineComponent, ref } from "@vue/runtime-core";
-import { ElTooltip } from "element-plus";
+import { Tooltip } from "ant-design-vue";
 
 const FullScreen = defineComponent({
   name: "FullScreen",
-  components: { ElTooltip },
   setup() {
     const isFull = ref(false);
     const FullScreenHandle = () => {
@@ -46,9 +45,9 @@ const FullScreen = defineComponent({
 
     return () =>
       <div class="full-screen">
-        <ElTooltip effect="dark" content={isFull.value ? "取消全屏" : "全屏"}>
+        <Tooltip title={isFull.value ? "取消全屏" : "全屏"}>
           <i onClick={FullScreenHandle} class="el-icon-full-screen"></i>
-        </ElTooltip>
+        </Tooltip>
       </div>
   }
 })

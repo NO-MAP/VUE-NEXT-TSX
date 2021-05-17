@@ -1,12 +1,15 @@
-import { defineComponent } from 'vue'
-import HelloWorld from './components/HelloWorld'
-import logo from "./assets/logo.png"
-import { RouterView } from "vue-router"
+import { defineComponent } from "vue";
+import { RouterView } from "vue-router";
+import { ConfigProvider } from "ant-design-vue";
+import zhCN from "ant-design-vue/es/locale/zh_CN";
 
 export default defineComponent({
-  name: 'App',
+  name: "App",
   setup() {
-    return () =>
-      <RouterView></RouterView>
-  }
-})
+    return () => (
+      <ConfigProvider locale={zhCN}>
+        <RouterView></RouterView>
+      </ConfigProvider>
+    );
+  },
+});

@@ -2,7 +2,7 @@ import { computed, defineComponent } from "@vue/runtime-core";
 import { useAppStore } from "../store/app";
 import SideBar from "@/components/SideBar";
 import TopHeader from "@/components/TopHeader";
-import style from "@style/pages/layout.module.css"
+import style from "./style/layout.module.css"
 
 const Layout = defineComponent({
   name: "Layout",
@@ -12,9 +12,9 @@ const Layout = defineComponent({
     return () =>
       <div class={style.layout}>
         {!appStore.isMobile ? <SideBar /> : ""}
-        <div class={[style["layout-content"], !appStore.collapse ? style["open"] : style["closed"]]}>
+        <div class={[style.layout_content, !appStore.collapse ? style.open : style.closed]}>
           <TopHeader />
-          <div class={style["main-container"]}>
+          <div class={style.main_container}>
             <router-view></router-view>
           </div>
         </div>
