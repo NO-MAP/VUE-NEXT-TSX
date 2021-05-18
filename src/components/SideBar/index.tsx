@@ -19,7 +19,7 @@ const SideBar = defineComponent({
             !appStore.collapse ? <div class={style.logo_text}>VNEXT-ADMIN</div> : ""
           }
         </div>
-        <Menu collapse={appStore.collapse} />
+        <Menu />
       </div>
   }
 })

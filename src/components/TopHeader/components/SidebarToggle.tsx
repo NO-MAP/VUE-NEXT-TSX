@@ -41,7 +41,9 @@ const SidebarToggle = defineComponent({
             onClose={() => {
               flag.value = false;
             }}
-          ></Drawer>
+          >
+            <Menu />
+          </Drawer>
         )}
       </>
     );

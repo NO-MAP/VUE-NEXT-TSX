@@ -9,11 +9,11 @@
 }
 
 .sidebar_closed {
-  width: 64px;
+  width: 80px;
 }
 
 .side_title {
-  height: 64px;
+  height: 80px;
   width: 100%;
   position: relative;
 }
@@ -22,18 +22,18 @@
   position: absolute;
   left: 0px;
   top: 0px;
-  height: 64px;
-  width: 64px;
+  height: 80px;
+  width: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .logo_text {
-  margin-left: 64px;
+  margin-left: 80px;
   width: 136px;
-  height: 64px;
-  line-height: 64px;
+  height: 80px;
+  line-height: 80px;
   text-align: center;
   white-space: nowrap;
 }
